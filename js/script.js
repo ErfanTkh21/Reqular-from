@@ -58,9 +58,19 @@ document.querySelector("form").addEventListener("submit", function (e) {
     isValid = false;
   }
 
-  if (isValid) {
-    alert("Form submitted successfully!");
-    // اینجا می‌تونی فرم رو به سرور بفرستی یا ریست کنی
+  if (isValid) {    // اینجا می‌تونی فرم رو به سرور بفرستی یا ریست کنی
     // e.target.submit();
+    showSuccessToast();
+    // فرم رو پاک می‌کنیم
+    e.target.reset();
   }
 });
+
+function showSuccessToast() {
+  const toast = document.getElementById("success-toast");
+  toast.classList.remove("hidden");
+
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 5000); // مخفی شدن بعد از 5 ثانیه
+}
